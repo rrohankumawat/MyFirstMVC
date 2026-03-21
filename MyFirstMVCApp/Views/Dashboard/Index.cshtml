@@ -1,0 +1,53 @@
+﻿@using MyFirstMVCApp.Dto
+@model List<EmployeeDto>;
+<div>
+    
+</div>
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a class="btn btn-success" asp-action="RedirectToEmployeeForm">+ Add Employee</a>
+        <h3 class="m-0">Employee Dashboard</h3>
+    </div>
+
+    <div class="card shadow p-3">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Email</th>
+                    <th>Designation</th>
+                    <th style="width: 150px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if(Model != null && Model.Count > 0)
+                    {
+                        foreach (var employee in Model)
+                        {
+                            <tr>
+                                <td>@employee.EmployeeName</td>
+                                <td>@employee.Department</td>
+                                <td>@employee.Email</td>
+                                <td>@employee.Designation</td>
+                                <td>
+                                    <a class="btn btn-sm btn-primary" asp-action="UpdateEmployee" asp-route-id="@employee.Id">Edit</a>
+                                    <a class="btn btn-sm btn-danger" asp-action="DeleteEmployee" asp-route-id="@employee.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5" class="text-center">No employees found.</td>
+                        </tr>
+                    }
+                }                
+            </tbody>
+        </table>
+    </div>
+
+</div>

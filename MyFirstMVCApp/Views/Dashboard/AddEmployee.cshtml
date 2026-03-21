@@ -1,0 +1,33 @@
+﻿@using MyFirstMVCApp.Dto
+@model EmployeeDto
+
+<div>@ViewBag.Message</div>
+<form class="container d-flex justify-content-center align-items-center vh-100" asp-action="AddEmployeeDetail">
+    <div class="card p-4 shadow" style="width: 400px;">
+        <h3 class="text-center mb-4">Add Employee</h3>
+
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" placeholder="Enter employee name" name="EmployeeName" asp-for="EmployeeName">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Department</label>
+            <input type="text" class="form-control" placeholder="Enter department" name="Department" asp-for="Department">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="Enter email" name="Email" asp-for="Email">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Designation</label>
+            <input type="text" class="form-control" placeholder="Enter designation" name="Designation" asp-for="Designation">
+        </div>
+
+        <div class="d-grid">
+            <button class="btn btn-success">Submit</button>
+        </div>
+    </div>
+</form>
